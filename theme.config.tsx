@@ -36,15 +36,6 @@ const config: DocsThemeConfig = {
 
     return (
       <>
-        <meta name="msapplication-TileColor" content="#fff" />
-        <meta name="theme-color" content="#fff" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta httpEquiv="Content-Language" content="en" />
-        <meta
-          name="og:title"
-          content={title ? title + ' – DeepSirius' : 'DeepSirius'}
-        />
-        <meta name="apple-mobile-web-app-title" content="DeepSirius" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </>
     )
@@ -52,7 +43,7 @@ const config: DocsThemeConfig = {
   project: {
     link: "https://github.com/MaTyson/deepsirius-ui",
   },
-  docsRepositoryBase: "https://github.com/MaTyson/deepsirius-ui-docs",
+  docsRepositoryBase: "https://github.com/MaTyson/deepsirius-ui-docs/tree/main/",
   useNextSeoProps() {
     const { asPath } = useRouter()
     if (asPath !== '/') {
