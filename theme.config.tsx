@@ -1,5 +1,7 @@
 import React from "react";
 import { DocsThemeConfig } from "nextra-theme-docs";
+import { useConfig } from "nextra-theme-docs";
+import { useRouter } from "next/router";
 
 const config: DocsThemeConfig = {
   logo: (
@@ -12,9 +14,9 @@ const config: DocsThemeConfig = {
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         className="lucide lucide-fish"
       >
         <path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z" />
@@ -29,10 +31,36 @@ const config: DocsThemeConfig = {
       </div>
     </span>
   ),
+  head: function useHead() {
+    const { title } = useConfig()
+
+    return (
+      <>
+        <meta name="msapplication-TileColor" content="#fff" />
+        <meta name="theme-color" content="#fff" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta httpEquiv="Content-Language" content="en" />
+        <meta
+          name="og:title"
+          content={title ? title + ' – DeepSirius' : 'DeepSirius'}
+        />
+        <meta name="apple-mobile-web-app-title" content="DeepSirius" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+      </>
+    )
+  },
   project: {
     link: "https://github.com/MaTyson/deepsirius-ui",
   },
   docsRepositoryBase: "https://github.com/MaTyson/deepsirius-ui-docs",
+  useNextSeoProps() {
+    const { asPath } = useRouter()
+    if (asPath !== '/') {
+      return {
+        titleTemplate: '%s – DeepSirius'
+      }
+    }
+  },
   footer: {
     text: (
       <div>
