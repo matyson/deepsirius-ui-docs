@@ -7,5 +7,10 @@
   },
   "dev": {
     "title": "Developer Guide"
+  },
+  "workboard": {
+    "title": "Workboard ↗",
+    "type": "page",
+    "href": "http://localhost:3000/workboard"
   }
 }
